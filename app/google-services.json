@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1036724075774",
+    "project_id": "edufuturequiz",
+    "storage_bucket": "edufuturequiz.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1036724075774:android:ccf1247f38fe59cbdab9af",
+        "android_client_info": {
+          "package_name": "com.example.quizsection"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1036724075774-ai95bpifdnkjokdpsi8ucm7kl106v17c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUHq_onIyhuA-h6AranXNWSi030D9cWzA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1036724075774-ai95bpifdnkjokdpsi8ucm7kl106v17c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

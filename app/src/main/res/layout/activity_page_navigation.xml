@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/navi_background"
+    tools:context=".PageNavigation">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:fontFamily="@font/theblacklight"
+        android:text="EduFuture"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        android:textSize="70dp"
+        android:shadowColor="@color/white"
+        android:shadowDx="10.9"
+        android:shadowDy="11.9"
+        android:shadowRadius="10.3">
+
+    </TextView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview_courses"
+        android:layout_width="250dp"
+        android:layout_height="90dp"
+        app:cardElevation="50dp"
+        app:cardCornerRadius="30dp"
+        app:cardBackgroundColor="@color/white"
+        android:layout_gravity="center">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/nunito_light"
+                android:text="Browse courses"
+                android:textColor="@color/black"
+                android:textSize="22dp" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview_quiz"
+        android:layout_width="250dp"
+        android:layout_height="90dp"
+        app:cardElevation="50dp"
+        app:cardCornerRadius="30dp"
+        app:cardBackgroundColor="@color/white"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/nunito_light"
+                android:text="Quiz"
+                android:textColor="@color/black"
+                android:textSize="22dp" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview_room"
+        android:layout_width="250dp"
+        android:layout_height="90dp"
+        app:cardElevation="50dp"
+        app:cardCornerRadius="30dp"
+        app:cardBackgroundColor="@color/white"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        tools:ignore="DuplicateIds">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="13dp"
+                android:fontFamily="@font/nunito_light"
+                android:text="Study room"
+                android:textColor="@color/black"
+                android:textSize="22dp" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
