@@ -6,31 +6,32 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/quiz_background"
-    tools:context=".QuizSubjects">
+    tools:context=".QuizChapters">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
+        android:fontFamily="@font/nunito_bold"
+        android:text="Chapters"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="10dp"
-        android:fontFamily="@font/nunito_bold"
-        android:text="Subjects"
         android:textColor="@color/black"
+        android:layout_marginLeft="20dp"
         android:textSize="23dp">
 
     </TextView>
 
     <GridView
-        android:id="@+id/subjGridView"
+        android:id="@+id/chapGridView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_margin="12dp"
         android:layout_weight="1"
-        android:columnWidth="100dp"
+        android:layout_margin="12dp"
         android:gravity="center"
         android:horizontalSpacing="15dp"
-        android:numColumns="1"
-        android:verticalSpacing="15dp"></GridView>
+        android:verticalSpacing="15dp"
+        android:columnWidth="100dp"
+        android:numColumns="1">
+    </GridView>
 
 </LinearLayout>

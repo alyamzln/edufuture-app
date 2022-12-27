@@ -1,52 +1,94 @@
 package com.example.quizsection;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
-import com.google.firebase.auth.FirebaseAuth;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.Toast;
 
-//create three cardviews that link to Courses Page, Quiz Page and Study Room
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
-    private CardView courses, quiz, studyRoom;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity {
+
+    public static List<String> levelList = new ArrayList<>();
+
+    private FirebaseFirestore firestore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_page_navigation);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        setContentView(R.layout.activity_main);
 
-        courses = (CardView) findViewById(R.id.cardview_courses);
-        quiz = (CardView) findViewById(R.id.cardview_quiz);
-        studyRoom = (CardView) findViewById(R.id.cardview_room);
-        courses.setOnClickListener((View.OnClickListener) this);
-        quiz.setOnClickListener((View.OnClickListener) this);
-        studyRoom.setOnClickListener((View.OnClickListener) this);
-    }
+        firestore = FirebaseFirestore.getInstance();
 
-    @Override
-    public void onClick(View v) {
+        new Thread(){
+            public void run(){
 
-        Intent i;
-        switch (v.getId()) {
-            case R.id.cardview_courses:
-                i = new Intent(this, CoursesPage.class);
-                startActivity(i);
-                break;
-            case R.id.cardview_quiz:
-                i = new Intent(MainActivity.this,PageNavigation.class);
-                startActivity(i);
-                break;
+                loadData();
 
-            case R.id.cardview_room:
-                i = new Intent(this, StudyRoom.class);
-                startActivity(i);
-                break;
-
-        }
+            }
+        }.start();
 
     }
+
+    private void loadData()
+    {
+        levelList.clear();
+
+        firestore.collection("QUIZ1").document("Level")
+                .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+
+                        if(task.isSuccessful())
+                        {
+                            DocumentSnapshot doc = task.getResult();
+
+                            if(doc.exists())
+                            {
+                                long count = (long)doc.get("Count");
+
+                                for (int i=1; i <= count; i++)
+                                {
+                                    String levelName = doc.getString("LEV" + String.valueOf(i));
+
+                                    levelList.add(levelName);
+                                }
+
+                            }
+                            else
+                            {
+                                Toast.makeText(MainActivity.this,"No Level Document Exists!",Toast.LENGTH_SHORT).show();
+                                finish();
+                            }
+                        }
+                        else
+                        {
+                            Toast.makeText(MainActivity.this,task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                });
+    }
+
+    public void signup(View view) {
+        startActivity(new Intent(MainActivity.this, SignUpActivity.class));
+    }
+
+    public void login(View view) {
+        startActivity(new Intent(MainActivity.this, LoginActivity.class));
+    }
+
 }

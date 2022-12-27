@@ -1,8 +1,13 @@
 package com.example.quizsection;
 
+import static com.example.quizsection.QuizChapters.subj_id;
+import static com.example.quizsection.QuizSubjects.level_id;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.Animator;
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
@@ -13,6 +18,14 @@ import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,11 +38,13 @@ public class QuizQuestions extends AppCompatActivity implements View.OnClickList
     private int quesNum;
     private CountDownTimer countdown;
     private int score;
+    private FirebaseFirestore firestore;
+    public static int chap_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_quiz_questions);
 
         quesCount = findViewById(R.id.QuestionNumber);
         question = findViewById(R.id.question);
@@ -45,6 +60,9 @@ public class QuizQuestions extends AppCompatActivity implements View.OnClickList
         option3.setOnClickListener(this);
         option4.setOnClickListener(this);
 
+        chap_id = getIntent().getIntExtra("CHAP_ID", 1);
+        firestore = FirebaseFirestore.getInstance();
+
         getQuestionsList();
 
         score = 0;
@@ -54,13 +72,37 @@ public class QuizQuestions extends AppCompatActivity implements View.OnClickList
     {
         questionList = new ArrayList<>();
 
-        questionList.add(new Question("Question 1", "A", "B", "C", "D", 2));
-        questionList.add(new Question("Question 2", "A", "B", "C", "D", 2));
-        questionList.add(new Question("Question 3", "A", "B", "C", "D", 2));
-        questionList.add(new Question("Question 4", "A", "B", "C", "D", 2));
-        questionList.add(new Question("Question 5", "A", "B", "C", "D", 2));
+         firestore.collection("QUIZ1").document("LEV" + String.valueOf(level_id))
+                         .collection("SUB" + String.valueOf(subj_id)).document("CHAPTERS").collection("CHAP" + String.valueOf(chap_id))
+                         .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                     @Override
+                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
 
-        setQuestion();
+                         if(task.isSuccessful())
+                         {
+                             QuerySnapshot questions = task.getResult();
+
+                             for(QueryDocumentSnapshot doc: questions)
+                             {
+                                 questionList.add(new Question(doc.getString("QUESTION"),
+                                         doc.getString("A"),
+                                         doc.getString("B"),
+                                         doc.getString("C"),
+                                         doc.getString("D"),
+                                         Integer.valueOf(doc.getString("ANSWER"))
+                                 ));
+                             }
+
+                             setQuestion();
+
+                         }
+                         else
+                         {
+                             Toast.makeText(QuizQuestions.this,task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                         }
+                     }
+                 });
+
     }
 
     private void setQuestion()

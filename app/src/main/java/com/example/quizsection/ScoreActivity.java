@@ -20,7 +20,6 @@ public class ScoreActivity extends AppCompatActivity {
 
         score = findViewById(R.id.score);
         playAgain = findViewById(R.id.playAgain);
-        others = findViewById(R.id.others);
         homepage = findViewById(R.id.homepage);
 
         String score_str = getIntent().getStringExtra("SCORE");
@@ -31,16 +30,6 @@ public class ScoreActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent intent = new Intent(ScoreActivity.this, QuizQuestions.class);
-                ScoreActivity.this.startActivity(intent);
-                ScoreActivity.this.finish();
-            }
-        });
-
-        others.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent intent = new Intent(ScoreActivity.this, PageNavigation.class);
                 ScoreActivity.this.startActivity(intent);
                 ScoreActivity.this.finish();
             }

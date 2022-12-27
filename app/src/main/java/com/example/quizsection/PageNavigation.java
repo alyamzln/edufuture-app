@@ -5,9 +5,7 @@ import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
-import com.google.firebase.auth.FirebaseAuth;
 
 //create three cardviews that link to My Recipes, Recipes For You and Logout
 public class PageNavigation extends AppCompatActivity implements View.OnClickListener{
@@ -25,6 +23,7 @@ public class PageNavigation extends AppCompatActivity implements View.OnClickLis
         courses.setOnClickListener((View.OnClickListener) this);
         quiz.setOnClickListener((View.OnClickListener) this);
         studyRoom.setOnClickListener((View.OnClickListener) this);
+
     }
 
     @Override
@@ -37,7 +36,7 @@ public class PageNavigation extends AppCompatActivity implements View.OnClickLis
                 startActivity(i);
                 break;
             case R.id.cardview_quiz:
-                i = new Intent(this, QuizQuestions.class);
+                i = new Intent(this, QuizLevel.class);
                 startActivity(i);
                 break;
 
@@ -49,4 +48,5 @@ public class PageNavigation extends AppCompatActivity implements View.OnClickLis
         }
 
     }
+
 }

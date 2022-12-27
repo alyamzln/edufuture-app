@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="360dp"
+    android:layout_height="100dp"
+    android:layout_weight="1"
+    android:gravity="center"
+    android:background="@drawable/subjbackground"
+    android:elevation="15dp"
+    >
+    
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="SUB 1"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:id="@+id/itemName"
+        android:fontFamily="@font/nunito_bold"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        >
+
+    </TextView>
+
+</LinearLayout>

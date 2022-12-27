@@ -1,8 +1,9 @@
 package com.example.quizsection;
 
+import static com.example.quizsection.QuizSubjects.level_id;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.widget.GridView;
@@ -16,33 +17,33 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.ArrayList;
 import java.util.List;
 
-public class QuizSubjects extends AppCompatActivity {
+public class QuizChapters extends AppCompatActivity {
 
-    public static List<String> subjList = new ArrayList<>();
-    private GridView subj_grid;
+    public static List<String> chapList = new ArrayList<>();
+    private GridView chap_grid;
     private FirebaseFirestore firestore;
-    public static int level_id;
+    public static int subj_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_quiz_subjects);
+        setContentView(R.layout.activity_quiz_chapters);
 
-        level_id = getIntent().getIntExtra("LEVEL_ID", 1);
+        subj_id = getIntent().getIntExtra("SUB_ID", 1);
 
-        subj_grid = findViewById(R.id.subjGridView);
+        chap_grid = findViewById(R.id.chapGridView);
 
         firestore = FirebaseFirestore.getInstance();
 
-        loadSubjects();
-
+        loadChapters();
     }
 
-    public void loadSubjects()
+    public void loadChapters()
     {
-        subjList.clear();
+        chapList.clear();
 
         firestore.collection("QUIZ1").document("LEV" + String.valueOf(level_id))
+                .collection("SUB" + String.valueOf(subj_id)).document("CHAPTERS")
                 .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -53,27 +54,27 @@ public class QuizSubjects extends AppCompatActivity {
 
                             if(doc.exists())
                             {
-                                long count = (long)doc.get("NUMSUB");
+                                long count = (long)doc.get("NUMCHAP");
 
                                 for (int i=1; i <= count; i++)
                                 {
-                                    String subjName = doc.getString("SUB" + String.valueOf(i));
-                                    subjList.add(subjName);
+                                    String chapName = doc.getString("CHAP" + String.valueOf(i));
+                                    chapList.add(chapName);
                                 }
 
-                                SubjGridAdapter adapter = new SubjGridAdapter(subjList);
-                                subj_grid.setAdapter(adapter);
+                                ChapAdapter adapter = new ChapAdapter(chapList);
+                                chap_grid.setAdapter(adapter);
 
                             }
                             else
                             {
-                                Toast.makeText(QuizSubjects.this,"No Level Document Exists!",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(QuizChapters.this,"No Chapters Document Exists!",Toast.LENGTH_SHORT).show();
                                 finish();
                             }
                         }
                         else
                         {
-                            Toast.makeText(QuizSubjects.this,task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                            Toast.makeText(QuizChapters.this,task.getException().getMessage(),Toast.LENGTH_SHORT).show();
                         }
 
                     }

@@ -7,12 +7,78 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1036724075774:android:ccf1247f38fe59cbdab9af",
+        "mobilesdk_app_id": "1:1036724075774:android:1b5042d19e2c755ddab9af",
+        "android_client_info": {
+          "package_name": "com.example.edufutureproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1036724075774-ai95bpifdnkjokdpsi8ucm7kl106v17c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUHq_onIyhuA-h6AranXNWSi030D9cWzA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1036724075774-ai95bpifdnkjokdpsi8ucm7kl106v17c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1036724075774:android:3d2db5cd74a26c31dab9af",
+        "android_client_info": {
+          "package_name": "com.example.loginactivity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1036724075774-ai95bpifdnkjokdpsi8ucm7kl106v17c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUHq_onIyhuA-h6AranXNWSi030D9cWzA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1036724075774-ai95bpifdnkjokdpsi8ucm7kl106v17c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1036724075774:android:744e9a09310aeecddab9af",
         "android_client_info": {
           "package_name": "com.example.quizsection"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "1036724075774-br5h1acj9qvtia8vqteo9l7s2fr6n58b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.quizsection",
+            "certificate_hash": "c09c596d94794987a82cd51f0af63afb70b51e0c"
+          }
+        },
         {
           "client_id": "1036724075774-ai95bpifdnkjokdpsi8ucm7kl106v17c.apps.googleusercontent.com",
           "client_type": 3
