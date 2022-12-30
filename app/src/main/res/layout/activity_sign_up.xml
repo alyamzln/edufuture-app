@@ -48,12 +48,12 @@
             android:textColor="#000000" />
 
         <ImageView
-            android:layout_width="36dp"
-            android:layout_height="39dp"
+            android:layout_width="56dp"
+            android:layout_height="46dp"
             android:layout_alignParentLeft="true"
             android:layout_centerInParent="true"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/email" />
+            android:layout_marginLeft="2dp"
+            android:background="@drawable/user" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -73,12 +73,12 @@
             android:textColor="#000000" />
 
         <ImageView
-            android:layout_width="36dp"
-            android:layout_height="39dp"
+            android:layout_width="56dp"
+            android:layout_height="46dp"
             android:layout_alignParentLeft="true"
             android:layout_centerInParent="true"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/email" />
+            android:layout_marginLeft="2dp"
+            android:background="@drawable/user" />
     </RelativeLayout>
 
 

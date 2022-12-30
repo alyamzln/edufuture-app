@@ -1,9 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/bg_room"
+    android:paddingHorizontal="30dp"
     tools:context=".StudyRoom">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/theblacklight"
+        android:text="EduRoom"
+        android:textColor="#303"
+        android:textSize="60dp">
+
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Communicate and learn together within a single platform!"
+        android:fontFamily="@font/nunito_extrabold"
+        android:textColor="#313032"
+        android:textStyle="bold"
+        android:textSize="19dp"
+        android:gravity="center"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+
+        <EditText
+            android:id="@+id/codeBox"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@drawable/roundedcorner"
+            android:hint="Enter room code"
+            android:inputType="text"
+            android:paddingVertical="15dp"
+            android:paddingLeft="107dp"
+            android:textColor="#000000" />
+
+    </RelativeLayout>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/joinBtn"
+        android:layout_width="200dp"
+        android:layout_height="55dp"
+        android:text="JOIN/CREATE ROOM"
+        android:textColor="@color/black"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/nunito_bold"
+        android:background="@drawable/roundedcornerbutton"
+        android:textSize="15dp"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/shareBtn"
+        android:layout_width="200dp"
+        android:layout_height="55dp"
+        android:text="SHARE ROOM CODE"
+        android:textColor="@color/black"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/nunito_bold"
+        android:background="@drawable/roundedcornerbutton"
+        android:textSize="15dp"
+        />
+
+
+</LinearLayout>
