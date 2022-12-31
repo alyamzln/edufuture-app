@@ -38,45 +38,30 @@
             android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="65dp"
-            android:background="@drawable/rectangular_field"
+            android:background="@drawable/roundedcornerbutton2"
             android:hint="Enter your email"
             android:inputType="textEmailAddress"
             android:paddingVertical="15dp"
-            android:paddingLeft="60dp"
+            android:paddingLeft="30dp"
             android:textColor="#000000" />
 
-        <ImageView
-            android:layout_width="36dp"
-            android:layout_height="39dp"
-            android:layout_alignParentLeft="true"
-            android:layout_centerInParent="true"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/email" />
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp">
+        android:layout_marginTop="15dp">
 
         <EditText
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="65dp"
-            android:background="@drawable/rectangular_field"
+            android:background="@drawable/roundedcornerbutton2"
             android:hint="Enter your password"
             android:inputType="textPassword"
             android:paddingVertical="15dp"
-            android:paddingLeft="60dp"
+            android:paddingLeft="30dp"
             android:textColor="#000000" />
 
-        <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/password"
-            android:layout_alignParentLeft="true"
-            android:layout_centerInParent="true">
-        </ImageView>
     </RelativeLayout>
 
     <androidx.appcompat.widget.AppCompatButton
@@ -86,7 +71,7 @@
         android:text="LOG IN"
         android:fontFamily="@font/nunito_bold"
         android:textColor="@color/black"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/roundedcornerbutton"
         android:backgroundTint="#FFFFFF"
         android:textSize="16dp"

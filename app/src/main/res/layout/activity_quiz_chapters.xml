@@ -13,11 +13,23 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/nunito_bold"
         android:text="Chapters"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
         android:textColor="@color/black"
         android:layout_marginLeft="20dp"
         android:textSize="23dp">
+
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nunito_light"
+        android:text= "Choose one of the chapters below"
+        android:layout_marginBottom="18dp"
+        android:textColor="@color/black"
+        android:layout_marginLeft="20dp"
+        android:textSize="16dp">
 
     </TextView>
 
