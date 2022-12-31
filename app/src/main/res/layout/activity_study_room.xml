@@ -43,8 +43,7 @@
             android:background="@drawable/roundedcorner"
             android:hint="Enter room code"
             android:inputType="text"
-            android:paddingVertical="15dp"
-            android:paddingLeft="107dp"
+            android:gravity="center"
             android:textColor="#000000" />
 
     </RelativeLayout>

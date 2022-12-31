@@ -55,7 +55,9 @@ public class StudyRoom extends AppCompatActivity {
                         .setRoom(codeBox.getText().toString()).setFeatureFlag("welcomepage.enabled", false)
                         .build();
                 JitsiMeetActivity.launch(StudyRoom.this, options);
-            }});
+
+            }
+        });
 
         shareBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,7 +69,7 @@ public class StudyRoom extends AppCompatActivity {
                 intent.setType("text/plain");
                 startActivity(intent);
             }});
-
+        
     }
 
 }
