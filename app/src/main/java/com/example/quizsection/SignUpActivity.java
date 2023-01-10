@@ -28,6 +28,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
+//comment
 public class SignUpActivity extends AppCompatActivity {
     public static final String TAG = "TAG";
     private EditText emailEt,passwordEt1,passwordEt2,firstNameEt,lastNameEt;
