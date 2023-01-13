@@ -14,11 +14,10 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import org.jitsi.meet.sdk.BroadcastEvent;
+import org.jitsi.meet.sdk.BroadcastIntentHelper;
 import org.jitsi.meet.sdk.JitsiMeet;
 import org.jitsi.meet.sdk.JitsiMeetActivity;
 import org.jitsi.meet.sdk.JitsiMeetConferenceOptions;
-import org.jitsi.meet.sdk.JitsiMeetUserInfo;
-
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -26,8 +25,8 @@ import timber.log.Timber;
 
 public class CreateRoom extends AppCompatActivity {
 
-    EditText nameBox,codeBox;
-    Button createBtn;
+    EditText codeBox;
+    Button createBtn,shareBtn;
 
     private final BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
@@ -43,8 +42,8 @@ public class CreateRoom extends AppCompatActivity {
         getSupportActionBar().setTitle("Create Room");
 
         createBtn = findViewById(R.id.createBtn);
-        nameBox = findViewById(R.id.nameBox);
         codeBox = findViewById(R.id.codeBox);
+        shareBtn = findViewById(R.id.shareBtn);
 
         URL serverURL;
         try {
@@ -55,12 +54,9 @@ public class CreateRoom extends AppCompatActivity {
             throw new RuntimeException("Invalid server URL");
         }
 
-        JitsiMeetUserInfo userInfo = new JitsiMeetUserInfo();
-        userInfo.setDisplayName(nameBox.getText().toString());
         JitsiMeetConferenceOptions defaultOptions
                 = new JitsiMeetConferenceOptions.Builder()
                 .setServerURL(serverURL)
-                .setUserInfo(userInfo)
                 .setFeatureFlag("welcomepage.enabled", false)
                 .build();
 
@@ -72,15 +68,39 @@ public class CreateRoom extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(!TextUtils.isEmpty(nameBox.getText().toString())&& !TextUtils.isEmpty(codeBox.getText().toString())){
+                if(TextUtils.isEmpty(codeBox.getText().toString())){
+                    codeBox.setError("Empty field! Enter a room code.");
+                    return;
+                }
 
-                    joinMeeting(nameBox.getText().toString(), codeBox.getText().toString());
+                else {
+
+                    joinMeeting(codeBox.getText().toString());
                 }
             }
         });
 
+
+        shareBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(TextUtils.isEmpty(codeBox.getText().toString())){
+                    codeBox.setError("Empty field! Enter a room code.");
+                    return;
+                }
+
+                else{
+                String string = codeBox.getText().toString();
+                Intent intent = new Intent();
+                intent.setAction(intent.ACTION_SEND);
+                intent.putExtra(intent.EXTRA_TEXT, string);
+                intent.setType("text/plain");
+                startActivity(intent);
+                }
+            }});
+
     }
-    private void joinMeeting(String name, String code) {
+    private void joinMeeting(String code) {
         JitsiMeetConferenceOptions options
                 = new JitsiMeetConferenceOptions.Builder()
                 .setRoom(code)
@@ -117,11 +137,20 @@ public class CreateRoom extends AppCompatActivity {
                 case PARTICIPANT_JOINED:
                     Timber.i("Participant joined%s", event.getData().get("name"));
                     break;
+                case PARTICIPANT_LEFT:
+                    Timber.i("Participant left%s", event.getData().get("name"));
+                    break;
 
 
             }
         }
     }
 
+    // Example for sending actions to JitsiMeetSDK
+    private void hangUp() {
+        Intent hangupBroadcastIntent = BroadcastIntentHelper.buildHangUpIntent();
+        LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(hangupBroadcastIntent);
 
+
+}
 }
