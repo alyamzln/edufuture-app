@@ -15,6 +15,34 @@
         android:theme="@style/Theme.QuizSection"
         tools:targetApi="31">
         <activity
+            android:name=".QuizActivityAdmin"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".QuizQuesAdmin"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".QuizChapAdmin"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".QuizSubAdmin"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".JoinRoom"
             android:exported="false">
             <meta-data
@@ -23,6 +51,13 @@
         </activity>
         <activity
             android:name=".CreateRoom"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".QuizLevAdmin"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

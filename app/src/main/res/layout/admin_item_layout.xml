@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="340dp"
     android:layout_height="70dp"
     android:layout_weight="1"
     android:gravity="center"
     android:background="@drawable/subjbackground"
-    android:elevation="3dp"
+    android:layout_marginBottom="15dp"
+    android:layout_marginLeft="15dp"
+    android:elevation="10dp"
     >
-    
+
     <TextView
         android:layout_width="250dp"
         android:layout_height="wrap_content"
@@ -21,5 +24,14 @@
         >
 
     </TextView>
+
+    <ImageView
+        android:id="@+id/deleteItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:padding="16dp"
+        app:srcCompat="@drawable/delete_icon" />
+
 
 </LinearLayout>

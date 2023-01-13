@@ -1,87 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/quiz_background"
-    tools:context=".QuizQuestions">
+    android:background="@drawable/quizbg">
+
+    <View
+        android:id="@+id/viewHeaderBg"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_125sdp"
+        android:background="#D9D0EA"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="40dp" />
 
     <TextView
+        android:id="@+id/QuestionNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="Question 1 of 5"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/viewHeaderBg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/QuestionNumber"
-        android:text="Question 1 of 5"
-        android:layout_marginTop="50dp"
-        android:textColor="#818080"
-        android:fontFamily="@font/nunito_light"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        android:textSize="15sp"
-        >
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/_16sdp"
+        android:elevation="15dp"
+        app:layout_constraintBottom_toBottomOf="@id/viewHeaderBg"
+        app:layout_constraintTop_toBottomOf="@id/viewHeaderBg">
 
-    </TextView>
-
-    <TextView
-        android:id="@+id/countdown"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:text="10"
-        android:layout_gravity="right"
-        android:layout_marginRight="30dp"
-        android:textColor="#FF0000"
-        android:fontFamily="@font/nunito_extrabold"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:gravity="center"
-        android:background="@drawable/roundedcorner"
-        >
-
-    </TextView>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:paddingLeft="50dp"
-        android:paddingRight="50dp"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="17dp"
-        android:gravity="center">
-
-        <TextView
-            android:id="@+id/question"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textColor="@color/black"
-            android:fontFamily="@font/nunito_bold"
-            android:text="Question 1"
-            android:textSize="25dp">
+            android:layout_height="160dp"
+            android:padding="@dimen/_14sdp">
 
-        </TextView>
+            <TextView
+                android:id="@+id/question"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Question"
+                android:fontFamily="@font/nunito_bold"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_16sdp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:orientation="vertical"
         android:paddingLeft="40dp"
         android:paddingRight="40dp"
-        android:orientation="vertical">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardHeader">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/option1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:gravity="center"
             android:layout_gravity="center"
+            android:layout_marginBottom="15dp"
             android:height="65dp"
             android:background="@drawable/roundedcornerbutton"
-            android:backgroundTint="@color/white"
             android:elevation="6dp"
             android:fontFamily="@font/nunito_light"
+            android:gravity="center"
             android:text="Option 1"
             android:textAllCaps="false"
             android:textColor="@color/black"
@@ -93,17 +95,16 @@
             android:id="@+id/option2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:gravity="center"
             android:layout_gravity="center"
-            android:text="Option 2"
-            android:textSize="16dp"
-            android:textAllCaps="false"
-            android:fontFamily="@font/nunito_light"
-            android:textColor="@color/black"
-            android:backgroundTint="@color/white"
+            android:layout_marginBottom="15dp"
+            android:height="65dp"
             android:background="@drawable/roundedcornerbutton"
-            android:height="65dp">
+            android:fontFamily="@font/nunito_light"
+            android:gravity="center"
+            android:text="Option 2"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="16dp">
 
         </androidx.appcompat.widget.AppCompatButton>
 
@@ -111,17 +112,16 @@
             android:id="@+id/option3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:gravity="center"
             android:layout_gravity="center"
-            android:text="Option 3"
-            android:textSize="16dp"
-            android:textAllCaps="false"
-            android:fontFamily="@font/nunito_light"
-            android:textColor="@color/black"
-            android:backgroundTint="@color/white"
+            android:layout_marginBottom="15dp"
+            android:height="65dp"
             android:background="@drawable/roundedcornerbutton"
-            android:height="65dp">
+            android:fontFamily="@font/nunito_light"
+            android:gravity="center"
+            android:text="Option 3"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="16dp">
 
         </androidx.appcompat.widget.AppCompatButton>
 
@@ -129,22 +129,45 @@
             android:id="@+id/option4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:gravity="center"
             android:layout_gravity="center"
-            android:text="Option 4"
-            android:textSize="16dp"
-            android:textAllCaps="false"
-            android:fontFamily="@font/nunito_light"
-            android:textColor="@color/black"
-            android:backgroundTint="#FFFFFF"
+            android:layout_marginBottom="15dp"
+            android:height="65dp"
             android:background="@drawable/roundedcornerbutton"
-            android:height="65dp">
+            android:fontFamily="@font/nunito_light"
+            android:gravity="center"
+            android:text="Option 4"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="16dp">
 
         </androidx.appcompat.widget.AppCompatButton>
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/countdown"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="right"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="211dp"
+        android:background="@drawable/roundedcornerbutton"
+        android:backgroundTint="#FFFFFF"
+        android:fontFamily="@font/nunito_extrabold"
+        android:gravity="center"
+        android:text="10"
+        android:textColor="#EF0F0F"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.553"
+        tools:ignore="MissingConstraints">
+
+    </TextView>
 
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

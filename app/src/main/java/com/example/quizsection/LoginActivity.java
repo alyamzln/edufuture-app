@@ -69,7 +69,9 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
+
                 if(task.isSuccessful()){ //function if user input match firebase records
+
                     Toast.makeText(LoginActivity.this,"Login Successfully",Toast.LENGTH_LONG).show();
                     Intent intent=new Intent(LoginActivity.this, PageNavigation.class);
                     startActivity(intent);
