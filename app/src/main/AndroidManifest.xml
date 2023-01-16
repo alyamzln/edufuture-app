@@ -15,6 +15,13 @@
         android:theme="@style/Theme.QuizSection"
         tools:targetApi="31">
         <activity
+            android:name=".PageNavigationAdmin"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".QuizActivityAdmin"
             android:exported="false">
             <meta-data

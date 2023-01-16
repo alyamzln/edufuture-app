@@ -73,7 +73,16 @@ public class LoginActivity extends AppCompatActivity {
                 if(task.isSuccessful()){ //function if user input match firebase records
 
                     Toast.makeText(LoginActivity.this,"Login Successfully",Toast.LENGTH_LONG).show();
-                    Intent intent=new Intent(LoginActivity.this, PageNavigation.class);
+
+                    Intent intent;
+                    if (email.equals("testcat304@gmail.com") && password.equals("masjidusm12"))
+                    {
+                        intent = new Intent(LoginActivity.this, PageNavigationAdmin.class);
+                    }
+
+                    else {
+                        intent = new Intent(LoginActivity.this, PageNavigation.class);
+                    }
                     startActivity(intent);
                     finish();
                 }

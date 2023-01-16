@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/navi_background"
+    tools:context=".PageNavigationAdmin">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="140dp"
+        android:fontFamily="@font/theblacklight"
+        android:text="EduFuture"
+        android:textColor="@color/black"
+        android:textSize="60sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="194dp"
+        android:layout_height="144dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="10dp"
+        android:alpha="0.1"
+        android:backgroundTint="#E1BABA"
+        android:foregroundTint="#E1BABA"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/pencil" />
+
+    <Button
+        android:id="@+id/bcourses_edit_btn"
+        android:layout_width="185dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="60dp"
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/nunito_bold"
+        android:gravity="center"
+        android:text="Browse Courses"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        app:cornerRadius="20dip"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/quiz_edit_btn"
+        android:layout_width="185dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/nunito_bold"
+        android:gravity="center"
+        android:text="Quiz"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        app:cornerRadius="20dip"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bcourses_edit_btn" />
+
+    <Button
+        android:id="@+id/eduroom_edit_btn"
+        android:layout_width="185dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/nunito_bold"
+        android:gravity="center"
+        android:text="EduRoom"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        app:cornerRadius="20dip"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quiz_edit_btn" />
+
+    <Button
+        android:id="@+id/report_edit_btn"
+        android:layout_width="185dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/nunito_bold"
+        android:gravity="center"
+        android:text="Report"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        app:cornerRadius="20dip"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eduroom_edit_btn" />
+
+    <ImageView
+        android:id="@+id/menu_admin"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/menu" />
+</androidx.constraintlayout.widget.ConstraintLayout>
