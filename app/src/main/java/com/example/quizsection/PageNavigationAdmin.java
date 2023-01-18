@@ -3,6 +3,7 @@ package com.example.quizsection;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -33,6 +34,15 @@ public class PageNavigationAdmin extends AppCompatActivity implements View.OnCli
 
     @Override
     public void onClick(View view) {
+
+        Intent intent;
+
+        switch(view.getId()){
+            case R.id.bcourses_edit_btn:
+                intent = new Intent(this, AdminCoursePage.class);
+                startActivity(intent);
+                break;
+        }
 
     }
 }
