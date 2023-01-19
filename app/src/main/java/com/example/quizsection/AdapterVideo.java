@@ -59,9 +59,10 @@ public class AdapterVideo extends RecyclerView.Adapter<AdapterVideo.HolderView> 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(view.getContext(), WatchVideo.class);
-                intent.putExtra("title",member.getTitle());
-                view.getContext().startActivity(intent);
+                // comment this first
+                //Intent intent=new Intent(view.getContext(), WatchVideo.class);
+                //intent.putExtra("title",member.getTitle());
+                //view.getContext().startActivity(intent);
             }
         });
     }
