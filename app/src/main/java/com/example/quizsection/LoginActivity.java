@@ -65,6 +65,16 @@ public class LoginActivity extends AppCompatActivity {
         progressDialog.setMessage("Just a moment...");
         progressDialog.show();
         progressDialog.setCanceledOnTouchOutside(false);
+
+        Intent intent1;
+        if (email.equals("testcat304@gmail.com") && password.equals("masjidusm12"))
+        {
+            intent1 = new Intent(LoginActivity.this, PageNavigationAdmin.class);
+            Toast.makeText(LoginActivity.this,"Login Successfully",Toast.LENGTH_LONG).show();
+            startActivity(intent1);
+            finish();
+        }
+
         firebaseAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
 
             @Override
@@ -75,6 +85,9 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this,"Login Successfully",Toast.LENGTH_LONG).show();
 
                     Intent intent;
+
+                    // nanti buang yg if statement ni kena kat uar sebab kita taknak store kat  firebase
+                    // kalau nak store kena register pulak untuk admin
                     if (email.equals("testcat304@gmail.com") && password.equals("masjidusm12"))
                     {
                         intent = new Intent(LoginActivity.this, PageNavigationAdmin.class);
