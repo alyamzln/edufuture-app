@@ -45,7 +45,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:paddingLeft="0dp"
-        android:backgroundTint="#5b3e31"
+        android:backgroundTint="#b7ad99"
         android:fontFamily="@font/nunito_bold"
         android:text="Add New subject"
         android:textSize="20dp"
