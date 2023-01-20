@@ -94,12 +94,11 @@ public class AdminViewSubject extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "Upload Video", Toast.LENGTH_SHORT).show();
-                // comment dulu
-                //Intent intent=new Intent(AdminViewSubject.this,UploadVideo.class);
+                Intent intent=new Intent(AdminViewSubject.this,UploadVideo.class);
                 // Pass subject name to UploadVideo.java
-                //intent.putExtra("name",subject);
-                //startActivity(intent);
-                //finish();
+                intent.putExtra("name",subject);
+                startActivity(intent);
+                finish();
             }
         });
 
