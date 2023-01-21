@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -22,6 +23,7 @@ import com.google.firebase.firestore.Query;
 public class AdminCoursePage extends AppCompatActivity {
 
     Button newSubjectButton;
+    ImageView imageView;
     RecyclerView mrecyclerview;
     StaggeredGridLayoutManager staggeredGridLayoutManager;
 
@@ -34,8 +36,18 @@ public class AdminCoursePage extends AppCompatActivity {
         setContentView(R.layout.activity_admin_courses_page);
 
         newSubjectButton=findViewById(R.id.button2);
+        imageView=findViewById(R.id.backArrow);
 
         firebaseFirestore=FirebaseFirestore.getInstance();
+
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AdminCoursePage.this, PageNavigationAdmin.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         //Direct admin to AdminNewSubject page
         newSubjectButton.setOnClickListener(new View.OnClickListener() {

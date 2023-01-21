@@ -170,12 +170,13 @@ public class UploadVideo extends AppCompatActivity {
                 if (uriTask.isSuccessful()){
                     HashMap<String, Object> hashMap = new HashMap<>();
                     hashMap.put("id", ""+timestamp);
+                    hashMap.put("subject",""+subjName);
                     hashMap.put("title", ""+title);
                     hashMap.put("timestamp", ""+timestamp);
                     hashMap.put("videoUrl", ""+downloadUri);
                     // Store video with in respective subject folder
                     DatabaseReference reference= FirebaseDatabase.getInstance().getReference(subjName);
-                    reference.child(title)
+                    reference.child(timestamp)
                             .setValue(hashMap)
                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override

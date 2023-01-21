@@ -1,19 +1,30 @@
 package com.example.quizsection;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.MediaController;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 
@@ -54,90 +65,122 @@ public class AdapterVideo extends RecyclerView.Adapter<AdapterVideo.HolderView> 
 
         // set data
         holder.textView.setText(title);
-        //setVideoUrl(member, holder);
-
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.videoView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // comment this first
-                //Intent intent=new Intent(view.getContext(), WatchVideo.class);
-                //intent.putExtra("title",member.getTitle());
-                //view.getContext().startActivity(intent);
+                setVideoUrl(member, holder);
+            }
+        });
+
+        // handle click for delete video
+        holder.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Delete").setMessage("Are you sure you want to delete video: "+ title)
+                                .setPositiveButton("DELETE", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        deleteVideo(member);
+                                    }
+                                }).setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        }).show();
+
             }
         });
     }
 
-//    private void setVideoUrl(Member member, HolderView holder) {
-//        // show progress
-//        holder.progressBar.setVisibility(View.VISIBLE);
-//
-//        // get video url
-//        String videoUrl = member.getVideoUrl();
-//        MediaController mediaController=new MediaController(context);
-//        mediaController.setAnchorView(holder.videoView);
-//
-//        Uri videoUri  = Uri.parse(videoUrl);
-//        holder.videoView.setMediaController(mediaController);
-//        holder.videoView.setVideoURI(videoUri);
-//
-//        holder.videoView.requestFocus();
-//        holder.videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-//            @Override
-//            public void onPrepared(MediaPlayer mediaPlayer) {
-//                // video is ready to play
-//                mediaPlayer.start();
-//            }
-//        });
-//
-//        holder.videoView.setOnInfoListener(new MediaPlayer.OnInfoListener() {
-//            @Override
-//            public boolean onInfo(MediaPlayer mp, int what, int extra) {
-//                // to check if buffering, rendering, etc
-//                switch (what){
-//                    case MediaPlayer.MEDIA_INFO_VIDEO_RENDERING_START:
-//                    case MediaPlayer.MEDIA_INFO_BUFFERING_START: {
-//                        // rendering  and buffering started
-//                        holder.progressBar.setVisibility(View.VISIBLE);
-//                        return true;
-//                    }
-//                    case MediaPlayer.MEDIA_INFO_BUFFERING_END: {
-//                        // Buffering ended
-//                        holder.progressBar.setVisibility(View.GONE);
-//                        return true;
-//                    }
-//                }
-//                return false;
-//            }
-//        });
-//
-//        holder.videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-//            @Override
-//            public void onCompletion(MediaPlayer mediaPlayer) {
-//                // restart video if completed
-//                mediaPlayer.start();
-//            }
-//        });
-//    }
+    private void setVideoUrl(Member member, HolderView holder) {
+        // show progress
+        //holder.progressBar.setVisibility(View.VISIBLE);
+
+        // get video url
+        String videoUrl = member.getVideoUrl();
+        MediaController mediaController=new MediaController(context);
+        mediaController.setAnchorView(holder.videoView);
+
+        Uri videoUri  = Uri.parse(videoUrl);
+        holder.videoView.setMediaController(mediaController);
+        holder.videoView.setVideoURI(videoUri);
+
+        holder.videoView.requestFocus();
+        holder.videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mediaPlayer) {
+                // video is ready to play
+                mediaPlayer.start();
+                //mediaPlayer.pause();
+            }
+        });
+
+        holder.videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                // restart video if completed
+                mediaPlayer.start();
+            }
+        });
+    }
+
+    private void deleteVideo(Member member) {
+        String videoId=member.getId();
+        String videoUrl= member.getVideoUrl();
+        String subjectName= member.getSubject();
+
+        // Delete from firebase storage
+        StorageReference reference = FirebaseStorage.getInstance().getReferenceFromUrl(videoUrl);
+        reference.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                // delete from firebase storage
+
+                // delete from firebase database
+                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference(subjectName);
+                databaseReference.child(videoId).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        // delete from firebase database
+                        Toast.makeText(context, "Video Deleted Successfully",Toast.LENGTH_SHORT).show();
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(context, ""+e.getMessage(),Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(context,""+e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
     @Override
     public int getItemCount() {
         // return size of the list
-
-        // TO DO: fix this line ada problem
         return videoArrayList.size();
     }
 
     class HolderView extends RecyclerView.ViewHolder{
         // UI Views of item.xml
-        //VideoView videoView;
+        VideoView videoView;
         TextView textView;
-        //ProgressBar progressBar;
+        ImageView imageView;
 
         public HolderView(@NonNull View itemView) {
             super(itemView);
-            //videoView=itemView.findViewById(R.id.video);
+            videoView=itemView.findViewById(R.id.video);
             textView=itemView.findViewById(R.id.vid_item);
-            // progressBar=itemView.findViewById(R.id.progressBar);
+            imageView=itemView.findViewById(R.id.deleteVideo);
         }
     }
 }

@@ -1,13 +1,14 @@
 package com.example.quizsection;
 
 public class Member {
-    String id, title, timestamp, videoUrl;
+    String id, subject, title, timestamp, videoUrl;
 
     public Member() {
     }
 
-    public Member(String id, String title, String timestamp, String videoUrl) {
+    public Member(String id, String subject, String title, String timestamp, String videoUrl) {
         this.id = id;
+        this.subject = subject;
         this.title = title;
         this.timestamp = timestamp;
         this.videoUrl = videoUrl;
@@ -19,6 +20,12 @@ public class Member {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getSubject() {return subject;}
+
+    public void setSubject(String subject) {
+        this.subject = subject;
     }
 
     public String getTitle() {

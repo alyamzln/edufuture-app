@@ -1,6 +1,7 @@
 package com.example.quizsection;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,21 +10,29 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.ListResult;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class AdminViewSubject extends AppCompatActivity {
 
@@ -103,9 +112,79 @@ public class AdminViewSubject extends AppCompatActivity {
         });
 
         fabDelete.setOnClickListener(new View.OnClickListener() {
+            String subj=subject+"/";
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Delete Subject", Toast.LENGTH_SHORT).show();
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(AdminViewSubject.this);
+                builder.setTitle("Delete").setMessage("Are you sure you want to delete this subject?")
+                        .setPositiveButton("DELETE", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                // Delete all videos from Realtime Database
+                                DatabaseReference reference1=FirebaseDatabase.getInstance().getReference(subject);
+                                reference1.addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot1) {
+                                        for (DataSnapshot ds: snapshot1.getChildren()){
+                                            reference1.removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                @Override
+                                                public void onSuccess(Void unused) {
+
+                                                }
+                                            }).addOnFailureListener(new OnFailureListener() {
+                                                @Override
+                                                public void onFailure(@NonNull Exception e) {
+
+                                                }
+                                            });
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
+                                // Delete the respective subject from Firestore Database
+                                DocumentReference documentReference=firebaseFirestore.collection("subjects").document(subject);
+                                documentReference.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void unused) {
+
+                                    }
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+
+                                    }
+                                });
+                                //Delete all videos stored in Firebase Storage
+                                StorageReference reference = FirebaseStorage.getInstance().getReference(subject);
+                                reference.listAll()
+                                        .addOnSuccessListener(new OnSuccessListener<ListResult>() {
+                                            @Override
+                                            public void onSuccess(ListResult listResult) {
+                                                List<StorageReference> srList=listResult.getItems();
+
+                                                for (StorageReference sr:srList){
+                                                    sr.delete();
+                                                }
+                                            }
+                                        }).addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+
+                                            }
+                                        });
+                            }
+                        }).setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        }).show();
+
             }
         });
 
@@ -133,6 +212,7 @@ public class AdminViewSubject extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 // clear list before adding data into it
+                videoArrayList.clear();
                 for (DataSnapshot ds: snapshot.getChildren()){
                     //get Data
                     Member member=ds.getValue(Member.class);

@@ -58,9 +58,13 @@ public class AdminNewSubject extends AppCompatActivity {
                 if(subject.isEmpty() || description.isEmpty()){
                     Toast.makeText(getApplicationContext(),"Both field are required",Toast.LENGTH_SHORT).show();
                 }
+                if(!(subject.contains("Form 1")||subject.contains("Form 2")||subject.contains("Form 3")
+                            ||subject.contains("Form 4")||subject.contains("Form 5"))){
+                        Toast.makeText(getApplicationContext(),"Need to specify the education level",Toast.LENGTH_SHORT).show();
+                }
                 else{
                     // Save subject and description in Firebase
-                    DocumentReference documentReference=firebaseFirestore.collection("subjects").document();
+                    DocumentReference documentReference=firebaseFirestore.collection("subjects").document(subject);
                     Map<String, Object> subj = new HashMap<>();
                     subj.put("subject", subject);
                     subj.put("description", description);
