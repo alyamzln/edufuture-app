@@ -23,6 +23,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText emailEt,passwordEt;
     private Button SignInButton;
     private TextView SignUpTv;
+    private TextView forgotpassword;
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
     @Override //retrieve user email and password from firebase
@@ -35,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
         SignInButton=findViewById(R.id.login);
         progressDialog=new ProgressDialog(this);
         SignUpTv=findViewById(R.id.signUpTv);
+        forgotpassword=findViewById(R.id.forgotpass);
         SignInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,6 +51,16 @@ public class LoginActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        forgotpassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(LoginActivity.this, ResetPassword.class);
+                startActivity(i);
+                finish();
+            }
+        });
+
     } //login verification
     private void Login(){
         String email=emailEt.getText().toString();
@@ -82,20 +94,9 @@ public class LoginActivity extends AppCompatActivity {
 
                 if(task.isSuccessful()){ //function if user input match firebase records
 
-                    Toast.makeText(LoginActivity.this,"Login Successfully",Toast.LENGTH_LONG).show();
-
                     Intent intent;
-
-                    // nanti buang yg if statement ni kena kat uar sebab kita taknak store kat  firebase
-                    // kalau nak store kena register pulak untuk admin
-                    if (email.equals("testcat304@gmail.com") && password.equals("masjidusm12"))
-                    {
-                        intent = new Intent(LoginActivity.this, PageNavigationAdmin.class);
-                    }
-
-                    else {
-                        intent = new Intent(LoginActivity.this, PageNavigation.class);
-                    }
+                    intent = new Intent(LoginActivity.this, PageNavigation.class);
+                    Toast.makeText(LoginActivity.this,"Login Successfully",Toast.LENGTH_SHORT).show();
                     startActivity(intent);
                     finish();
                 }

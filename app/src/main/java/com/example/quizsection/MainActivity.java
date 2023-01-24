@@ -12,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -23,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     public static List<String> levelList = new ArrayList<>();
 
     private FirebaseFirestore firestore;
+    private FirebaseAuth mFirebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         firestore = FirebaseFirestore.getInstance();
+        mFirebaseAuth = FirebaseAuth.getInstance();
 
         new Thread(){
             public void run(){
@@ -41,6 +45,18 @@ public class MainActivity extends AppCompatActivity {
             }
         }.start();
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        FirebaseUser currentUser  = mFirebaseAuth.getCurrentUser();
+        if (currentUser != null){
+            startActivity(new Intent(MainActivity.this, PageNavigation.class));
+
+        }else{
+        }
     }
 
     private void loadData()
