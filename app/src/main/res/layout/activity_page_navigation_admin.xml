@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/navi_background"
+    android:background="@drawable/blue_green"
     tools:context=".PageNavigationAdmin">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="120dp"
         android:fontFamily="@font/theblacklight"
         android:text="EduFuture"
         android:textColor="@color/black"
@@ -33,7 +33,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/pencil" />
+        app:srcCompat="@drawable/ic_baseline_edit_24" />
 
     <Button
         android:id="@+id/bcourses_edit_btn"
@@ -46,6 +46,7 @@
         android:text="Browse Courses"
         android:textAllCaps="false"
         android:textColor="@color/black"
+        android:textSize="16sp"
         app:cornerRadius="20dip"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,6 +63,7 @@
         android:text="Quiz"
         android:textAllCaps="false"
         android:textColor="@color/black"
+        android:textSize="16sp"
         app:cornerRadius="20dip"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -78,6 +80,7 @@
         android:text="EduRoom"
         android:textAllCaps="false"
         android:textColor="@color/black"
+        android:textSize="16sp"
         app:cornerRadius="20dip"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -94,18 +97,20 @@
         android:text="Report"
         android:textAllCaps="false"
         android:textColor="@color/black"
+        android:textSize="16sp"
         app:cornerRadius="20dip"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/eduroom_edit_btn" />
 
     <ImageView
-        android:id="@+id/menu_admin"
-        android:layout_width="60dp"
+        android:id="@+id/settings_admin"
+        android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/menu" />
+        app:srcCompat="@drawable/settings" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
