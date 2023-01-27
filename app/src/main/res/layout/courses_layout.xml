@@ -15,7 +15,7 @@
         app:cardUseCompatPadding="true"
         app:cardCornerRadius="10dp"
         app:cardMaxElevation="5dp"
-        android:backgroundTint="#095256"
+        android:backgroundTint="#8E6C88"
         android:id="@+id/subjectcard">
 
         <LinearLayout

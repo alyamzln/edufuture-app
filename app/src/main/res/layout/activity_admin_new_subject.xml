@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/blue_green"
+    android:background="@drawable/app_background3"
     android:layout_gravity="center"
     android:orientation="vertical"
     android:padding="10dp"
@@ -59,13 +59,13 @@
         android:layout_marginBottom="16dp"
         android:clickable="true"
         android:src="@drawable/plus"
-        app:backgroundTint="#467599"
+        app:backgroundTint="#FFC1CF"
         app:borderWidth="0dp"
         app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:rippleColor="@color/black"
-        app:tint="@color/white"
+        app:tint="@color/black"
         tools:ignore="MissingConstraints" />
 
 
