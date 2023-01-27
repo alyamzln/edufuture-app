@@ -225,6 +225,7 @@ public class SignUpActivity extends AppCompatActivity {
                 "The Application is the property of Universiti Sains Malaysia and its licensors. " +
                 "BY USING THE SITE, YOU AGREE TO THESE TERMS OF USE; IF YOU DO NOT AGREE, DO NOT USE THE SITE.\n" +
                 "\n" +
+                "Your private information such as password and IC Number will not be disclosed to a third party and used for personal gain." +
                 "The developer reserves the right, at its sole discretion, to change, modify, add, or remove " +
                 "portions of these Terms of Use, at any time. It is your responsibility to check these Terms of Use periodically for changes. " +
                 "Your continued use of the app following the posting of changes will mean that you accept and agree to the changes. " +
