@@ -75,7 +75,7 @@ public class SignUpActivity extends AppCompatActivity {
         SignInTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(SignUpActivity.this, MainActivity.class);
+                Intent intent=new Intent(SignUpActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -192,7 +192,7 @@ public class SignUpActivity extends AppCompatActivity {
                         user.put("lName", lastname);
                         user.put("email", email);
                     //    user.put("password", password1);
-                        user.put("ic_number", ic_num);
+                    //    user.put("ic_number", ic_num);
 
                         documentReference.set(user).addOnSuccessListener((OnSuccessListener) (aVoid) -> {
                             Log.d(TAG, "onSuccess: user Profile is created for " + userID);

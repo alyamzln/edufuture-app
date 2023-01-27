@@ -106,11 +106,6 @@ public class Settings extends AppCompatActivity implements View.OnClickListener{
                             Bitmap bitmap = BitmapFactory.decodeFile(localFile.getAbsolutePath());
                             profilePic.setImageBitmap(bitmap);
                         }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(Settings.this, "No profile picture set", Toast.LENGTH_SHORT).show();
-                        }
                     });
         } catch (IOException e) {
             e.printStackTrace();

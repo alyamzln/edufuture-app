@@ -71,10 +71,10 @@
         android:id="@+id/change_icon"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginTop="72dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.7"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="100dp"
+        app:layout_constraintEnd_toEndOf="@+id/profile_icon"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/profile_icon"
         app:layout_constraintTop_toTopOf="@+id/profile_icon"
         app:srcCompat="@drawable/plus1" />
 
