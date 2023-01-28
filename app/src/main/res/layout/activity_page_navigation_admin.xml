@@ -85,23 +85,6 @@
         app:layout_constraintTop_toBottomOf="@+id/bcourses_edit_btn" />
 
     <Button
-        android:id="@+id/eduroom_edit_btn"
-        android:layout_width="250dp"
-        android:layout_height="90dp"
-        android:backgroundTint="@color/white"
-        android:fontFamily="@font/nunito_light"
-        android:gravity="center"
-        android:text="EduRoom"
-        android:textAllCaps="false"
-        android:textColor="@color/black"
-        android:textSize="22sp"
-        app:cornerRadius="30dip"
-        app:layout_constraintHorizontal_bias="0.515"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/quiz_edit_btn" />
-
-    <Button
         android:id="@+id/report_edit_btn"
         android:layout_width="250dp"
         android:layout_height="90dp"
@@ -113,10 +96,10 @@
         android:textColor="@color/black"
         android:textSize="22sp"
         app:cornerRadius="30dip"
-        app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eduroom_edit_btn" />
+        app:layout_constraintTop_toBottomOf="@+id/quiz_edit_btn" />
 
     <ImageView
         android:id="@+id/settings_admin"

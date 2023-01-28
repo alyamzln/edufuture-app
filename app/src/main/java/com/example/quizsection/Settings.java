@@ -1,5 +1,6 @@
 package com.example.quizsection;
 
+import static android.view.View.resolveSize;
 import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
 
 import android.app.ProgressDialog;
@@ -81,20 +82,13 @@ public class Settings extends AppCompatActivity implements View.OnClickListener{
         uname.setText(usernameID);
         email.setText(emailAddress);
 
+        DocumentReference documentReference = fstore.collection("users").document(usernameID);
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
                 fname.setText(value.getString("fName") +" " + value.getString("lName"));
             }
         });
-
-        back.setOnClickListener((View.OnClickListener) this);
-        profilePic.setOnClickListener((View.OnClickListener) this);
-        changeIcon.setOnClickListener((View.OnClickListener) this);
-        fname.setOnClickListener((View.OnClickListener) this);
-        resetPassword.setOnClickListener((View.OnClickListener) this);
-        logout.setOnClickListener((View.OnClickListener) this);
-        delete.setOnClickListener((View.OnClickListener) this);
 
         storageReference = FirebaseStorage.getInstance().getReference().child("images/" + usernameID +"/" + usernameID);
         try{
@@ -110,6 +104,14 @@ public class Settings extends AppCompatActivity implements View.OnClickListener{
         } catch (IOException e) {
             e.printStackTrace();
         } ;
+
+        back.setOnClickListener((View.OnClickListener) this);
+        profilePic.setOnClickListener((View.OnClickListener) this);
+        changeIcon.setOnClickListener((View.OnClickListener) this);
+        fname.setOnClickListener((View.OnClickListener) this);
+        resetPassword.setOnClickListener((View.OnClickListener) this);
+        logout.setOnClickListener((View.OnClickListener) this);
+        delete.setOnClickListener((View.OnClickListener) this);
 
     }
 

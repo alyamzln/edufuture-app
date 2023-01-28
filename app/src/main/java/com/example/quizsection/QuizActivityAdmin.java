@@ -13,12 +13,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.ArrayMap;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -37,6 +39,7 @@ import java.util.Map;
 public class QuizActivityAdmin extends AppCompatActivity {
 
     private EditText ques, optionA, optionB, optionC, optionD, answer;
+    private ImageView back;
     private Button updateQB;
     private List<QuestionModel> quesList = new ArrayList<>();
     private String qStr, aStr, bStr, cStr, dStr, ansStr;
@@ -49,6 +52,7 @@ public class QuizActivityAdmin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz_admin);
 
+        back = findViewById(R.id.back_quiz_admin_question);
         ques = findViewById(R.id.quizQuestion);
         optionA = findViewById(R.id.optionA);
         optionB = findViewById(R.id.optionB);
@@ -56,6 +60,15 @@ public class QuizActivityAdmin extends AppCompatActivity {
         optionD = findViewById(R.id.optionD);
         answer = findViewById(R.id.correctAns);
         updateQB = findViewById(R.id.updateButton);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(QuizActivityAdmin.this, QuizQuesAdmin.class);
+                startActivity(i);
+                finish();
+            }
+        });
 
         loadingDialog = new Dialog(QuizActivityAdmin.this);
         loadingDialog.setContentView(R.layout.loading_progressbar);

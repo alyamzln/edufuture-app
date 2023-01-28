@@ -11,6 +11,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import org.jitsi.meet.sdk.BroadcastEvent;
 import org.jitsi.meet.sdk.BroadcastIntentHelper;
@@ -26,6 +27,7 @@ import timber.log.Timber;
 
 public class JoinRoom extends AppCompatActivity {
 
+    private ImageView back;
     EditText codeBox;
     Button joinBtn;
 
@@ -42,8 +44,18 @@ public class JoinRoom extends AppCompatActivity {
         setContentView(R.layout.activity_join_room);
         getSupportActionBar().setTitle("Join Room");
 
+        back = findViewById(R.id.back_btn_room2);
         joinBtn = findViewById(R.id.joinBtn);
         codeBox = findViewById(R.id.codeBox);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(JoinRoom.this, StudyRoom.class);
+                startActivity(i);
+                finish();
+            }
+        });
 
         URL serverURL;
         try {

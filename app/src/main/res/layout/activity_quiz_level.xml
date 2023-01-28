@@ -8,6 +8,19 @@
     android:background="@color/white"
     tools:context=".QuizLevel">
 
+    <ImageView
+        android:id="@+id/back_btn_quiz"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        app:layout_anchor="@+id/back_btn_quiz"
+        app:layout_anchorGravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="?attr/actionModeCloseDrawable"
+        app:tint="@color/black" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -8,12 +8,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.ArrayMap;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -33,6 +35,7 @@ import java.util.Map;
 public class QuizSubAdmin extends AppCompatActivity {
 
     private RecyclerView sub_recycler_view;
+    private ImageView back;
     private Button addSub;
     public static List<String> subjList = new ArrayList<>();
     public static int selected_sub_index = 0;
@@ -48,7 +51,17 @@ public class QuizSubAdmin extends AppCompatActivity {
         setContentView(R.layout.activity_quiz_sub_admin);
 
         sub_recycler_view = findViewById(R.id.subRecyler);
+        back = findViewById(R.id.back_quiz_admin1);
         addSub = findViewById(R.id.addSub);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(QuizSubAdmin.this, QuizLevAdmin.class);
+                startActivity(i);
+                finish();
+            }
+        });
 
         loadingDialog = new Dialog(QuizSubAdmin.this);
         loadingDialog.setContentView(R.layout.loading_progressbar);

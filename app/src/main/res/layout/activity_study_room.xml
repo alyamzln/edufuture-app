@@ -5,57 +5,77 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
+    android:gravity="center_horizontal"
     android:background="@drawable/bg_room"
-    android:paddingHorizontal="30dp"
+    android:paddingHorizontal="20dp"
     tools:context=".StudyRoom">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:fontFamily="@font/theblacklight"
-        android:text="EduRoom"
-        android:textColor="#303"
-        android:textSize="60dp">
+    <ImageView
+        android:id="@+id/back_btn_room"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="start"
+        android:layout_marginTop="20dp"
+        app:layout_anchor="@+id/back_btn_room"
+        app:layout_anchorGravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="?attr/actionModeCloseDrawable"
+        app:tint="@color/black" />
 
-    </TextView>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Communicate and learn together within a single platform!"
-        android:fontFamily="@font/nunito_bold"
-        android:textColor="#313032"
-        android:textStyle="bold"
-        android:textSize="19dp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:gravity="center"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="15dp"/>
+        android:orientation="vertical">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/createBtn"
-        android:layout_width="200dp"
-        android:layout_height="55dp"
-        android:text="CREATE ROOM"
-        android:textColor="@color/black"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/nunito_bold"
-        android:background="@drawable/roundedcornerbutton"
-        android:textSize="15dp"
-        />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/theblacklight"
+            android:text="EduRoom"
+            android:textColor="#303"
+            android:textSize="60dp">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/joinBtn"
-        android:layout_width="200dp"
-        android:layout_height="55dp"
-        android:text="JOIN ROOM"
-        android:textColor="@color/black"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/nunito_bold"
-        android:background="@drawable/roundedcornerbutton"
-        android:textSize="15dp"
-        />
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:fontFamily="@font/nunito_bold"
+            android:gravity="center"
+            android:paddingHorizontal="10dp"
+            android:text="Communicate and learn together within a single platform!"
+            android:textColor="#313032"
+            android:textSize="19dp"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/createBtn"
+            android:layout_width="200dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/roundedcornerbutton"
+            android:fontFamily="@font/nunito_bold"
+            android:paddingHorizontal="10dp"
+            android:text="CREATE ROOM"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/joinBtn"
+            android:layout_width="200dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/roundedcornerbutton"
+            android:fontFamily="@font/nunito_bold"
+            android:paddingHorizontal="10dp"
+            android:text="JOIN ROOM"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
+    </LinearLayout>
 
 
 </LinearLayout>

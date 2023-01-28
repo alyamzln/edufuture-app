@@ -12,6 +12,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import org.jitsi.meet.sdk.BroadcastEvent;
 import org.jitsi.meet.sdk.BroadcastIntentHelper;
@@ -25,6 +26,7 @@ import timber.log.Timber;
 
 public class CreateRoom extends AppCompatActivity {
 
+    private ImageView back;
     EditText codeBox;
     Button createBtn,shareBtn;
 
@@ -41,9 +43,19 @@ public class CreateRoom extends AppCompatActivity {
         setContentView(R.layout.activity_create_room);
         getSupportActionBar().setTitle("Create Room");
 
+        back = findViewById(R.id.back_btn_room1);
         createBtn = findViewById(R.id.createBtn);
         codeBox = findViewById(R.id.codeBox);
         shareBtn = findViewById(R.id.shareBtn);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(CreateRoom.this, StudyRoom.class);
+                startActivity(i);
+                finish();
+            }
+        });
 
         URL serverURL;
         try {
@@ -84,6 +96,7 @@ public class CreateRoom extends AppCompatActivity {
         shareBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //
                 if(TextUtils.isEmpty(codeBox.getText().toString())){
                     codeBox.setError("Empty field! Enter a room code.");
                     return;

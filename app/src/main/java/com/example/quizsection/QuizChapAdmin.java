@@ -11,12 +11,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.ArrayMap;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -34,6 +36,7 @@ import java.util.Map;
 public class QuizChapAdmin extends AppCompatActivity {
 
     private RecyclerView chap_recycler_view;
+    private ImageView back;
     private Button addChap;
     public static List<String> chapList = new ArrayList<>();
     public static int selected_chap_index = 0;
@@ -49,7 +52,17 @@ public class QuizChapAdmin extends AppCompatActivity {
         setContentView(R.layout.activity_quiz_chap_admin);
 
         chap_recycler_view = findViewById(R.id.chapRecyler);
+        back = findViewById(R.id.back_quiz_admin2);
         addChap = findViewById(R.id.addChap);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(QuizChapAdmin.this, QuizSubAdmin.class);
+                startActivity(i);
+                finish();
+            }
+        });
 
         loadingDialog = new Dialog(QuizChapAdmin.this);
         loadingDialog.setContentView(R.layout.loading_progressbar);

@@ -12,26 +12,26 @@
 
     <ImageView
         android:id="@+id/backArrow"
-        android:layout_width="40dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/long_arrow" />
+        app:srcCompat="?attr/actionModeCloseDrawable"
+        app:tint="@color/black" />
 
     <TextView
         android:id="@+id/welcomeBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="55dp"
         android:fontFamily="@font/nunito_extrabold"
         android:text="Welcome Back,"
         android:textColor="@color/black"
         android:textSize="35dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backArrow"
         tools:ignore="MissingConstraints" />
 
     <TextView

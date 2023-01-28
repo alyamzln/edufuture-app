@@ -3,6 +3,8 @@ package com.example.quizsection;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -35,7 +37,12 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.storage.FileDownloadTask;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -51,6 +58,7 @@ public class CoursesPage extends AppCompatActivity {
 
     FirebaseFirestore firebaseFirestore;
     FirebaseAuth firebaseAuth;
+    StorageReference storageReference;
 
     FirestoreRecyclerAdapter<firebasemodel,SubjectViewHolder> subjectAdapter;
 
@@ -92,6 +100,21 @@ public class CoursesPage extends AppCompatActivity {
                 Toast.makeText(CoursesPage.this, "Error", Toast.LENGTH_SHORT).show();
             }
         });
+
+        storageReference = FirebaseStorage.getInstance().getReference().child("images/" + uidUser +"/" + uidUser);
+        try{
+            final File localFile = File.createTempFile(uidUser, "jpg");
+            storageReference.getFile(localFile)
+                    .addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                            Bitmap bitmap = BitmapFactory.decodeFile(localFile.getAbsolutePath());
+                            logout.setImageBitmap(bitmap);
+                        }
+                    });
+        } catch (IOException e) {
+            e.printStackTrace();
+        } ;
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override

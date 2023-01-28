@@ -26,7 +26,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:shapeAppearanceOverlay="@style/ImageStyle_Circle"
-        app:srcCompat="@drawable/icon_avatar" />
+        app:srcCompat="@drawable/account" />
 
     <TextView
         android:id="@+id/textView"
@@ -105,12 +105,12 @@
         android:id="@+id/d"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="324dp"
+        android:layout_marginEnd="20dp"
         android:fontFamily="@font/nunito_light"
         android:text="Welcome, "
-        android:textSize="14sp"
         android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profile_icon" />
 
     <TextView

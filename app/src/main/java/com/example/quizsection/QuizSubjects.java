@@ -4,8 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -19,6 +22,7 @@ import java.util.List;
 public class QuizSubjects extends AppCompatActivity {
 
     public static List<String> subjList = new ArrayList<>();
+    private ImageView back;
     private GridView subj_grid;
     private FirebaseFirestore firestore;
     public static int level_id;
@@ -30,11 +34,21 @@ public class QuizSubjects extends AppCompatActivity {
 
         level_id = getIntent().getIntExtra("LEVEL_ID", 1);
 
+        back = findViewById(R.id.back_btn_quiz2);
         subj_grid = findViewById(R.id.subjGridView);
 
         firestore = FirebaseFirestore.getInstance();
 
         loadSubjects();
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(QuizSubjects.this, QuizLevel.class);
+                startActivity(i);
+                finish();
+            }
+        });
 
     }
 

@@ -5,8 +5,11 @@ import static com.example.quizsection.QuizSubjects.level_id;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -20,6 +23,7 @@ import java.util.List;
 public class QuizChapters extends AppCompatActivity {
 
     public static List<String> chapList = new ArrayList<>();
+    private ImageView back;
     private GridView chap_grid;
     private FirebaseFirestore firestore;
     public static int subj_id;
@@ -29,6 +33,8 @@ public class QuizChapters extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz_chapters);
 
+        back = findViewById(R.id.back_btn_quiz1);
+
         subj_id = getIntent().getIntExtra("SUB_ID", 1);
 
         chap_grid = findViewById(R.id.chapGridView);
@@ -36,6 +42,15 @@ public class QuizChapters extends AppCompatActivity {
         firestore = FirebaseFirestore.getInstance();
 
         loadChapters();
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(QuizChapters.this, QuizSubjects.class);
+                startActivity(i);
+                finish();
+            }
+        });
     }
 
     public void loadChapters()

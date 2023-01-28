@@ -15,7 +15,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class PageNavigationAdmin extends AppCompatActivity implements View.OnClickListener{
 
-    private Button courses, quiz, studyRoom, report;
+    private Button courses, quiz, report;
     private ImageView settings;
 
     @Override
@@ -25,13 +25,11 @@ public class PageNavigationAdmin extends AppCompatActivity implements View.OnCli
 
         courses = (Button) findViewById(R.id.bcourses_edit_btn);
         quiz = (Button) findViewById(R.id.quiz_edit_btn);
-        studyRoom = (Button) findViewById(R.id.eduroom_edit_btn);
         report =  (Button) findViewById(R.id.report_edit_btn);
         settings = (ImageView) findViewById(R.id.settings_admin);
 
         courses.setOnClickListener((View.OnClickListener) this);
         quiz.setOnClickListener((View.OnClickListener) this);
-        studyRoom.setOnClickListener((View.OnClickListener) this);
         report.setOnClickListener((View.OnClickListener) this);
         settings.setOnClickListener((View.OnClickListener) this);
     }
@@ -53,8 +51,8 @@ public class PageNavigationAdmin extends AppCompatActivity implements View.OnCli
                 startActivity(intent);
                 break;
 
-            case R.id.eduroom_edit_btn:
-                intent = new Intent(this, StudyRoom.class);
+            case R.id.quiz_edit_btn:
+                intent = new Intent(this, QuizLevAdmin.class);
                 startActivity(intent);
                 break;
 
