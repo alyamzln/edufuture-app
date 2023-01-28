@@ -1,128 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/app_background3"
-    tools:context=".PageNavigation">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true">
 
-    <ImageView
-        android:id="@+id/settings_user"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/settings" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/app_background3"
+        android:nestedScrollingEnabled="true"
+        tools:context=".PageNavigation">
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/profile_icon"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:shapeAppearanceOverlay="@style/ImageStyle_Circle"
-        app:srcCompat="@drawable/account" />
+        <ImageView
+            android:id="@+id/settings_user"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/settings" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
-        android:fontFamily="@font/theblacklight"
-        android:text="EduFuture"
-        android:textColor="@color/black"
-        android:textSize="70sp"
-        android:shadowColor="@color/white"
-        android:shadowDx="10.9"
-        android:shadowDy="11.9"
-        android:shadowRadius="10.3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profile_icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ImageStyle_Circle"
+            app:srcCompat="@drawable/account" />
 
-    <Button
-        android:id="@+id/cardview_room"
-        android:layout_width="250dp"
-        android:layout_height="90dp"
-        android:backgroundTint="@color/white"
-        android:elevation="50dp"
-        android:fontFamily="@font/nunito_light"
-        android:outlineAmbientShadowColor="@color/black"
-        android:outlineSpotShadowColor="@color/black"
-        android:text="EduRoom"
-        android:textAllCaps="false"
-        android:textColor="@color/black"
-        android:textSize="22dp"
-        app:cornerRadius="30dip"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardview_quiz" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="120dp"
+            android:fontFamily="@font/theblacklight"
+            android:shadowColor="@color/white"
+            android:shadowDx="10.9"
+            android:shadowDy="11.9"
+            android:shadowRadius="10.3"
+            android:text="EduFuture"
+            android:textColor="@color/black"
+            android:textSize="70sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/cardview_quiz"
-        android:layout_width="250dp"
-        android:layout_height="90dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="0dp"
-        android:backgroundTint="@color/white"
-        android:elevation="50dp"
-        android:fontFamily="@font/nunito_light"
-        android:text="Quiz"
-        android:textAllCaps="false"
-        android:textColor="@color/black"
-        android:textSize="22dp"
-        app:cornerRadius="30dip"
-        app:layout_constraintBottom_toTopOf="@+id/cardview_room"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardview_courses" />
+        <Button
+            android:id="@+id/cardview_room"
+            android:layout_width="250dp"
+            android:layout_height="90dp"
+            android:backgroundTint="@color/white"
+            android:elevation="50dp"
+            android:fontFamily="@font/nunito_light"
+            android:outlineAmbientShadowColor="@color/black"
+            android:outlineSpotShadowColor="@color/black"
+            android:text="EduRoom"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="22dp"
+            app:cornerRadius="30dip"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.515"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardview_quiz" />
 
-    <Button
-        android:id="@+id/cardview_courses"
-        android:layout_width="250dp"
-        android:layout_height="90dp"
-        android:layout_marginTop="64dp"
-        android:backgroundTint="@color/white"
-        android:fontFamily="@font/nunito_light"
-        android:text="Browse Courses"
-        android:textAllCaps="false"
-        android:textColor="@color/black"
-        android:textSize="22dp"
-        app:cornerRadius="30dip"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        <Button
+            android:id="@+id/cardview_quiz"
+            android:layout_width="250dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="0dp"
+            android:backgroundTint="@color/white"
+            android:elevation="50dp"
+            android:fontFamily="@font/nunito_light"
+            android:text="Quiz"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="22dp"
+            app:cornerRadius="30dip"
+            app:layout_constraintBottom_toTopOf="@+id/cardview_room"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.515"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardview_courses" />
 
-    <TextView
-        android:id="@+id/d"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:fontFamily="@font/nunito_light"
-        android:text="Welcome, "
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_icon" />
+        <Button
+            android:id="@+id/cardview_courses"
+            android:layout_width="250dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="64dp"
+            android:backgroundTint="@color/white"
+            android:fontFamily="@font/nunito_light"
+            android:text="Browse Courses"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="22dp"
+            app:cornerRadius="30dip"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.515"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <TextView
-        android:id="@+id/display_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:fontFamily="@font/nunito_light"
-        android:text="user"
-        android:textSize="14sp"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/d" />
+        <TextView
+            android:id="@+id/d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/nunito_light"
+            android:text="Welcome, "
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile_icon" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/display_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/nunito_light"
+            android:text="user"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/d" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
