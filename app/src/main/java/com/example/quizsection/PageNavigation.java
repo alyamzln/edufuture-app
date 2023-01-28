@@ -2,9 +2,11 @@ package com.example.quizsection;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -88,6 +90,29 @@ public class PageNavigation extends AppCompatActivity implements View.OnClickLis
         } catch (IOException e) {
             e.printStackTrace();
         } ;
+
+        profilIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(PageNavigation.this);
+                builder.setTitle("Logout").setMessage("Are you sure you want to logout")
+                        .setPositiveButton("LOGOUT", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                auth.signOut();
+                                Intent intent = new Intent(PageNavigation.this, MainActivity.class);
+                                startActivity(intent);
+                                finish();
+                                Toast.makeText(PageNavigation.this, "Logout Successfully", Toast.LENGTH_SHORT).show();
+                            }
+                        }).setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        }).show();
+            }
+        });
     }
 
     @Override

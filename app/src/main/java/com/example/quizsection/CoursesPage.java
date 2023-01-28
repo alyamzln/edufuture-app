@@ -134,7 +134,7 @@ public class CoursesPage extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 firebaseAuth.signOut();
-                                Intent intent = new Intent(CoursesPage.this, LoginActivity.class);
+                                Intent intent = new Intent(CoursesPage.this, MainActivity.class);
                                 startActivity(intent);
                                 finish();
                                 Toast.makeText(CoursesPage.this, "Logout Successfully", Toast.LENGTH_SHORT).show();
@@ -145,8 +145,6 @@ public class CoursesPage extends AppCompatActivity {
                                 dialogInterface.dismiss();
                             }
                         }).show();
-
-
             }
         });
 
