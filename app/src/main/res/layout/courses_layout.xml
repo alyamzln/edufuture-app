@@ -10,12 +10,12 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:elevation="5dp"
-        app:cardElevation="4dp"
+        android:elevation="3dp"
+        app:cardElevation="3dp"
         app:cardUseCompatPadding="true"
         app:cardCornerRadius="10dp"
-        app:cardMaxElevation="5dp"
-        android:backgroundTint="#8E6C88"
+        app:cardMaxElevation="3dp"
+        android:backgroundTint="#EFEAE5"
         android:id="@+id/subjectcard">
 
         <LinearLayout
@@ -40,7 +40,7 @@
                     android:text="Type subjects here"
                     android:textSize="20sp"
                     android:fontFamily="@font/ubuntu_bold"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:layout_weight="1">
 
 
@@ -61,7 +61,7 @@
                 android:text="This is the subject description"
                 android:textSize="15sp"
                 android:fontFamily="@font/ubuntu_light"
-                android:textColor="@color/white">
+                android:textColor="@color/black">
 
             </TextView>
 

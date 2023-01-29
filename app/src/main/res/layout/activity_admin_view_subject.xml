@@ -7,7 +7,7 @@
     android:gravity="center"
     android:padding="10dp"
     android:orientation="vertical"
-    android:background="@drawable/app_background3"
+    android:background="@drawable/navi_bg"
     tools:context=".AdminViewSubject">
 
     <ImageView
@@ -186,7 +186,7 @@
             app:rippleColor="@color/black"
             app:borderWidth="0dp"
             android:src="@drawable/plus"
-            app:backgroundTint="#467599"/>
+            app:backgroundTint="@color/black"/>
 
     </LinearLayout>
 

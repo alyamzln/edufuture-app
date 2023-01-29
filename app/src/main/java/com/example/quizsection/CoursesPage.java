@@ -53,7 +53,7 @@ public class CoursesPage extends AppCompatActivity {
     public String currentDateAndTime = sdf.format(new Date());
 
     TextView textView;
-    String uidUser, firstName, emailUser;
+    String uidUser, firstName, lastName, emailUser;
 
     ImageView imageView;
     ImageView logout;
@@ -94,7 +94,8 @@ public class CoursesPage extends AppCompatActivity {
                     DocumentSnapshot documentSnapshot = task.getResult();
                     if (documentSnapshot!=null && documentSnapshot.exists()){
                         firstName=documentSnapshot.getString("fName");
-                        textView.setText(firstName+",");
+                        lastName=documentSnapshot.getString("lName");
+                        textView.setText(firstName+" "+lastName+",");
                     }
                 }
             }

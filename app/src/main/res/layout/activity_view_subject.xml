@@ -7,7 +7,7 @@
     android:gravity="center"
     android:padding="10dp"
     android:orientation="vertical"
-    android:background="@drawable/app_background3"
+    android:background="@drawable/navi_bg"
     tools:context=".ViewSubject">
 
     <ImageView

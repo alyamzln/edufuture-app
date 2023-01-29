@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
-    android:background="@drawable/app_background3"
+    android:background="@drawable/navi_bg"
     tools:context=".UploadVideo">
 
     <TextView
@@ -45,7 +45,7 @@
         android:text="Upload video"
         android:textColor="@color/white"
         android:layout_marginTop="5dp"
-        android:backgroundTint="#8E6C88"/>
+        android:backgroundTint="#b7ad99"/>
 
 
     <ImageView
@@ -67,7 +67,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:backgroundTint="#FFC1CF"
-        android:src="@drawable/play"/>
+        app:tint="@color/white"
+        app:fabSize="normal"
+        app:rippleColor="@color/black"
+        app:borderWidth="0dp"
+        android:src="@drawable/play"
+        app:backgroundTint="@color/black"/>
 
 </RelativeLayout>
