@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/white"
+    android:background="@drawable/quiz_bg2"
     tools:context=".QuizSubjects">
 
     <ImageView
@@ -24,25 +24,17 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="10dp"
-        android:fontFamily="@font/nunito_bold"
-        android:text="Subjects"
+        android:fontFamily="@font/nunito_extrabold"
+        android:text="Choose one\nof the subjects"
+        android:textSize="35dp"
         android:textColor="@color/black"
-        android:textSize="23dp">
-
-    </TextView>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/nunito_light"
-        android:text= "Choose one of the subjects below"
-        android:layout_marginBottom="18dp"
-        android:textColor="@color/black"
-        android:layout_marginLeft="20dp"
-        android:textSize="16dp">
+        android:shadowColor="@color/white"
+        android:shadowDx="-5"
+        android:shadowDy="-5"
+        android:shadowRadius="1"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="10dp">
 
     </TextView>
 
@@ -50,7 +42,9 @@
         android:id="@+id/subjGridView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_margin="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="28dp"
         android:layout_weight="1"
         android:columnWidth="100dp"
         android:gravity="center"

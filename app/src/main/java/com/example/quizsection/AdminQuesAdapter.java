@@ -1,5 +1,6 @@
 package com.example.quizsection;
 
+import static android.content.ContentValues.TAG;
 import static com.example.quizsection.QuizChapAdmin.selected_chap_index;
 import static com.example.quizsection.QuizLevAdmin.selected_lev_index;
 import static com.example.quizsection.QuizQuesAdmin.quesList;
@@ -12,6 +13,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.util.ArrayMap;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -128,13 +130,29 @@ public class AdminQuesAdapter extends RecyclerView.Adapter<AdminQuesAdapter.View
         private void deleteQuestion(final int id, Context context, AdminQuesAdapter adapter)
         {
             loadingDialog.show();
-
             FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+
+            firestore.collection("QUIZ1").document("LEV" + selected_lev_index)
+                    .collection("SUB" + selected_sub_index).document("CHAPTERS")
+                    .collection("CHAP" + selected_chap_index)
+                    .document("QUESTION" + (id+1))
+                    .delete()
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Log.d(TAG, "Question successfully deleted!");
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.w(TAG, "Error deleting question", e);
+                        }
+                    });
 
             Map<String,Object> quesDoc = new ArrayMap<>();
 
             int index = 1;
-
             for (int i=0; i < quesList.size(); i++)
             {
                 if (i != id)

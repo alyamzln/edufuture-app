@@ -32,10 +32,9 @@ import com.google.firebase.storage.StorageReference;
 import java.io.File;
 import java.io.IOException;
 
-//create three cardviews that link to My Recipes, Recipes For You and Logout
 public class PageNavigation extends AppCompatActivity implements View.OnClickListener{
 
-    private Button courses, quiz, studyRoom;
+    private CardView courses, quiz, studyRoom;
     private ImageView settings, profilIcon;
     private TextView name;
 

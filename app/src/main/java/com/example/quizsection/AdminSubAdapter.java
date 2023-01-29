@@ -1,6 +1,9 @@
 package com.example.quizsection;
 
+import static android.content.ContentValues.TAG;
+import static com.example.quizsection.QuizChapAdmin.selected_chap_index;
 import static com.example.quizsection.QuizLevAdmin.selected_lev_index;
+import static com.example.quizsection.QuizSubAdmin.selected_sub_index;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -8,6 +11,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.util.ArrayMap;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -157,7 +161,6 @@ public class AdminSubAdapter extends RecyclerView.Adapter<AdminSubAdapter.ViewHo
         private void deleteSubject(final int id, Context context, AdminSubAdapter adapter)
         {
             loadingDialog.show();
-
             FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
             Map<String,Object> subDoc = new ArrayMap<>();

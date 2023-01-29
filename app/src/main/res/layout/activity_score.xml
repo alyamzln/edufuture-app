@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/quiz_background"
+    android:background="@drawable/navi_bg"
     tools:context=".QuizQuestions">
 
     <TextView
@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/QuestionNumber"
         android:text="Quiz Results"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="70dp"
         android:textColor="@color/black"
         android:fontFamily="@font/nunito_bold"
         android:textStyle="bold"
@@ -60,14 +60,17 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/playAgain"
-            android:layout_width="match_parent"
+            android:layout_width="230dp"
             android:layout_height="wrap_content"
-            android:text="Play again"
+            android:text="PLAY AGAIN"
             android:textAllCaps="false"
-            android:textSize="18sp"
+            android:layout_gravity="center"
+            android:textSize="15sp"
             android:elevation="6dp"
             android:fontFamily="@font/nunito_bold"
+            android:layout_marginBottom="10dp"
             android:textColor="@color/black"
+            android:background="@drawable/roundedcornerbutton"
             android:backgroundTint="@color/white"
             android:height="65dp">
 
@@ -75,13 +78,15 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/homepage"
-            android:layout_width="match_parent"
+            android:layout_width="230dp"
             android:layout_height="wrap_content"
-            android:text="Back to homepage"
+            android:text="BACK TO HOMEPAGE"
+            android:layout_gravity="center"
             android:textAllCaps="false"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:fontFamily="@font/nunito_bold"
             android:textColor="@color/black"
+            android:background="@drawable/roundedcornerbutton"
             android:backgroundTint="@color/white"
             android:height="65dp">
 

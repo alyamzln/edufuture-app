@@ -73,7 +73,8 @@ public class QuizQuestions extends AppCompatActivity implements View.OnClickList
         questionList = new ArrayList<>();
 
          firestore.collection("QUIZ1").document("LEV" + String.valueOf(level_id))
-                         .collection("SUB" + String.valueOf(subj_id)).document("CHAPTERS").collection("CHAP" + String.valueOf(chap_id))
+                         .collection("SUB" + String.valueOf(subj_id)).document("CHAPTERS")
+                         .collection("CHAP" + String.valueOf(chap_id))
                          .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                      @Override
                      public void onComplete(@NonNull Task<QuerySnapshot> task) {

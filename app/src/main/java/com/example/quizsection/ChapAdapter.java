@@ -49,7 +49,7 @@ public class ChapAdapter extends BaseAdapter {
         v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(viewGroup.getContext(), QuizQuestions.class);
+                Intent intent = new Intent(viewGroup.getContext(), QuizReady.class);
                 intent.putExtra("CHAP_ID", i+1);
                 viewGroup.getContext().startActivity(intent);
             }
