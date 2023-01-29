@@ -5,7 +5,7 @@
     android:layout_weight="1"
     android:gravity="center"
     android:background="@drawable/roundedcornerbutton"
-    android:backgroundTint="#EFEAE5"
+    android:backgroundTint="#DDD5D8"
     android:elevation="7dp"
     >
     

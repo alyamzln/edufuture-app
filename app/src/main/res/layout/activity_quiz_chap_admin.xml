@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@drawable/navi_bg"
     tools:context=".QuizChapAdmin">
 
     <ImageView
@@ -57,8 +57,8 @@
         android:layout_width="250dp"
         android:layout_height="55dp"
         android:background="@drawable/roundedcornerbutton"
-        android:backgroundTint="#CED4FA"
-        android:fontFamily="@font/nunito_bold"
+        android:backgroundTint="#C3B7BB"
+        android:fontFamily="@font/nunito_extrabold"
         android:text="ADD NEW CHAPTER"
         android:textColor="@color/black"
         android:textSize="16dp"
