@@ -4,6 +4,7 @@ import static com.example.quizsection.QuizChapters.subj_id;
 import static com.example.quizsection.QuizSubjects.level_id;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.Animator;
@@ -22,15 +23,24 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class QuizQuestions extends AppCompatActivity implements View.OnClickListener {
+    SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+    public String currentDateAndTime = sdf.format(new Date());
 
     private TextView quesCount, question, timer;
     private Button option1, option2, option3, option4;
@@ -40,6 +50,9 @@ public class QuizQuestions extends AppCompatActivity implements View.OnClickList
     private int score;
     private FirebaseFirestore firestore;
     public static int chap_id;
+
+    FirebaseAuth auth = FirebaseAuth.getInstance();
+    String uidUser = auth.getCurrentUser().getUid();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -229,6 +242,25 @@ public class QuizQuestions extends AppCompatActivity implements View.OnClickList
         }
         else
         {
+            //store activity
+            Map<String, Object> data = new HashMap<>();
+            data.put("Lev", String.valueOf(level_id));
+            data.put("Sub", String.valueOf(subj_id));
+            data.put("Chap", String.valueOf(chap_id));
+            data.put("Score", String.valueOf(score));
+            firestore.collection("reports").document("users activity")
+                    .collection(uidUser).document(currentDateAndTime).set(data);
+
+            Map<String, Object> subj = new HashMap<>();
+            subj.put("User ID", uidUser);
+            subj.put("Lev", String.valueOf(level_id));
+            subj.put("Sub", String.valueOf(subj_id));
+            subj.put("Chap", String.valueOf(chap_id));
+            subj.put("Score", String.valueOf(score));
+            firestore.collection("reports").document("quizzes")
+                    .collection("quizzes").document(currentDateAndTime).set(subj);
+
+
             //Go to score activity
             Intent intent = new Intent(QuizQuestions.this,ScoreActivity.class);
             intent.putExtra("SCORE", "You scored " + String.valueOf(score) + " out of " + String.valueOf(questionList.size()) + "!");

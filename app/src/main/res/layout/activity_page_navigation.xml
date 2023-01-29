@@ -14,42 +14,36 @@
 
         <ImageView
             android:id="@+id/settings_user"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            app:srcCompat="@drawable/settings"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_gravity="left"/>
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="left"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            app:srcCompat="@drawable/settings" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/profile_icon"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginLeft="275dp"
-            android:layout_marginTop="10dp"
-            android:layout_toRightOf="@id/settings_user"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_gravity="right"
             app:shapeAppearanceOverlay="@style/ImageStyle_Circle"
-            app:srcCompat="@drawable/icon_user" />
-
-        <TextView
-            android:id="@+id/d"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="250dp"
-            android:text="Welcome, "
-            android:fontFamily="@font/nunito_light"
-            android:textColor="@color/black"
-            android:layout_marginTop="15dp"/>
+            app:srcCompat="@drawable/account" />
 
         <TextView
             android:id="@+id/display_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="260dp"
-            android:text="user"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="35dp"
+            android:layout_marginEnd="80dp"
             android:fontFamily="@font/nunito_light"
-            android:textColor="@color/black"
-            android:layout_marginTop="32dp"/>
+            android:text="user"
+            android:textColor="@color/black" />
 
     </RelativeLayout>
 
@@ -216,9 +210,9 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="23dp"
-                    android:src="@drawable/icon_room"
+                    android:adjustViewBounds="true"
                     android:scaleType="fitCenter"
-                    android:adjustViewBounds="true"/>
+                    android:src="@drawable/icon_room" />
 
                 <TextView
                     android:layout_width="wrap_content"

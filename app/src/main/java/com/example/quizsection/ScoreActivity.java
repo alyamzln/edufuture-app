@@ -1,5 +1,8 @@
 package com.example.quizsection;
 
+import static com.example.quizsection.QuizChapters.subj_id;
+import static com.example.quizsection.QuizSubjects.level_id;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -8,10 +11,22 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class ScoreActivity extends AppCompatActivity {
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+public class ScoreActivity extends AppCompatActivity{
     private TextView score;
     private Button playAgain, others, homepage;
+
+    FirebaseAuth auth = FirebaseAuth.getInstance();
+    String uidUser = auth.getCurrentUser().getUid();
+    FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -124,6 +124,7 @@ public class Settings extends AppCompatActivity implements View.OnClickListener{
             case R.id.back_btn:
                 i = new Intent(this, PageNavigation.class);
                 startActivity(i);
+                finish();
                 break;
 
             case R.id.profile_icon:

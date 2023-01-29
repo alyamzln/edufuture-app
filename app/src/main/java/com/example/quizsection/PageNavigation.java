@@ -80,11 +80,6 @@ public class PageNavigation extends AppCompatActivity implements View.OnClickLis
                             Bitmap bitmap = BitmapFactory.decodeFile(localFile.getAbsolutePath());
                             profilIcon.setImageBitmap(bitmap);
                         }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(PageNavigation.this, "Error occurred", Toast.LENGTH_LONG).show();
-                        }
                     });
         } catch (IOException e) {
             e.printStackTrace();

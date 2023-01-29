@@ -27,10 +27,15 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 public class SignUpActivity extends AppCompatActivity {
+    SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+    public String currentDateAndTime = sdf.format(new Date());
+
     public static final String TAG = "TAG";
     private EditText emailEt,passwordEt1,passwordEt2,firstNameEt,lastNameEt, icnum;
     private Button SignUpButton;
@@ -203,6 +208,9 @@ public class SignUpActivity extends AppCompatActivity {
                                 Log.d(TAG, "onFailure: " + e.toString());
                             }
                         });
+
+                        createUserLog(firstname, lastname);
+
                         Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
                         startActivity(intent);
                         finish();
@@ -247,5 +255,16 @@ public class SignUpActivity extends AppCompatActivity {
         });
 
         dialog.show();
+    }
+
+    private void createUserLog(String fn, String ln){
+        userID = firebaseAuth.getCurrentUser().getUid();
+        DocumentReference documentReference = fStore.collection("reports").document("users activity")
+                .collection(userID).document(currentDateAndTime);
+
+        Map<String, Object> data = new HashMap<>();
+        data.put("Activity", "Create Account");
+        documentReference.set(data);
+
     }
 }

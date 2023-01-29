@@ -43,10 +43,14 @@ import com.google.firebase.storage.StorageReference;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 public class CoursesPage extends AppCompatActivity {
+    SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+    public String currentDateAndTime = sdf.format(new Date());
 
     TextView textView;
     String uidUser, firstName, emailUser;
@@ -171,6 +175,17 @@ public class CoursesPage extends AppCompatActivity {
                         intent.putExtra("subject",firebasemodel.getSubject());
                         intent.putExtra("description",firebasemodel.getDescription());
                         intent.putExtra("subjectId",docId);
+
+                        Map<String, Object> data = new HashMap<>();
+                        data.put("Browse Course ", firebasemodel.getSubject());
+                        firebaseFirestore.collection("reports").document("users activity")
+                                .collection(uidUser).document(currentDateAndTime).set(data);
+
+                        Map<String, Object> subj = new HashMap<>();
+                        subj.put("User ID", uidUser);
+                        subj.put("Subject", firebasemodel.getSubject());
+                        firebaseFirestore.collection("reports").document("courses")
+                                .collection("courses").document(currentDateAndTime).set(subj);
 
                         view.getContext().startActivity(intent);
                     }
