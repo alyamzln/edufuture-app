@@ -186,7 +186,7 @@
             app:rippleColor="@color/black"
             app:borderWidth="0dp"
             android:src="@drawable/plus"
-            app:backgroundTint="@color/black"/>
+            app:backgroundTint="#A89B8C"/>
 
     </LinearLayout>
 
