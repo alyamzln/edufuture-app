@@ -8,12 +8,25 @@
     android:orientation="vertical"
     tools:context=".QuizReady">
 
+    <ImageView
+        android:id="@+id/back_btn_quiz3"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        app:layout_anchor="@+id/back_btn_quiz1"
+        app:layout_anchorGravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="?attr/actionModeCloseDrawable"
+        app:tint="@color/black" />
+
     <RelativeLayout
         android:layout_width="300dp"
         android:layout_height="400dp"
         android:layout_gravity="center"
         android:layout_marginBottom="20dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="30dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:background="@drawable/roundedcorner"

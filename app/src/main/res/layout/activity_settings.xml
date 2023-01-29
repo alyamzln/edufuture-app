@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".Settings"
-        android:background="@drawable/blue_brown">
+        android:background="@drawable/settings_bg2">
 
         <ImageView
             android:id="@+id/back_btn"

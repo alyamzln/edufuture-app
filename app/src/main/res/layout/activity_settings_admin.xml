@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SettingsAdmin"
-    android:background="@drawable/blue_brown">
+    android:background="@drawable/navi_bg">
 
     <ImageView
         android:id="@+id/back_btn"
@@ -48,12 +48,12 @@
         android:id="@+id/logout_admin"
         android:layout_width="199dp"
         android:layout_height="82dp"
-        android:backgroundTint="#72B7DA"
+        android:backgroundTint="@color/black"
         android:fontFamily="@font/nunito_bold"
         android:text="Log Out"
         android:textAllCaps="false"
-        android:textColor="@color/black"
-        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:textSize="17sp"
         app:cornerRadius="20dip"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
