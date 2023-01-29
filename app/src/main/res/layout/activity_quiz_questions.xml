@@ -5,15 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/ques_bg"
+    android:background="@drawable/ques_bg2"
     tools:context=".QuizQuestions">
 
     <TextView
         android:id="@+id/QuestionNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:layout_marginBottom="2dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="8dp"
         android:layout_gravity="center"
         android:text="Question 1 of 5"
         android:fontFamily="@font/nunito_bold"
@@ -27,19 +27,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-        android:layout_marginRight="67dp"
+        android:layout_marginRight="62dp"
         android:layout_marginBottom="20dp"
-        android:fontFamily="@font/nunito_bold"
+        android:fontFamily="@font/nunito_extrabold"
         android:text="10"
         android:textColor="#ED1000"
-        android:textSize="16sp"
+        android:textSize="17sp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/question"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_marginBottom="2dp"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
@@ -54,7 +53,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/option1"
         android:layout_width="350dp"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:layout_gravity="center"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="150dp"
@@ -73,7 +72,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/option2"
         android:layout_width="350dp"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:layout_gravity="center"
         android:layout_marginBottom="10dp"
         android:height="65dp"
@@ -91,7 +90,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/option3"
         android:layout_width="350dp"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:layout_gravity="center"
         android:layout_marginBottom="10dp"
         android:height="65dp"
@@ -109,7 +108,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/option4"
         android:layout_width="350dp"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:layout_gravity="center"
         android:layout_marginBottom="15dp"
         android:height="65dp"
@@ -118,6 +117,7 @@
         android:fontFamily="@font/nunito_light"
         android:gravity="center"
         android:text="Option 1"
+        android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@color/black"
         android:textSize="16dp">

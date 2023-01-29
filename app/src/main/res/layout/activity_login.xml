@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    android:background="@drawable/app_background3"
+    android:background="@drawable/navi_bg"
     android:paddingHorizontal="30dp"
     tools:context=".LoginActivity">
 
@@ -70,10 +70,10 @@
         android:layout_height="55dp"
         android:text="LOG IN"
         android:fontFamily="@font/nunito_bold"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:layout_marginTop="30dp"
         android:background="@drawable/roundedcornerbutton"
-        android:backgroundTint="#2196F3"
+        android:backgroundTint="@color/black"
         android:textSize="16dp"
         />
     <LinearLayout

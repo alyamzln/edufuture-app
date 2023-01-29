@@ -26,15 +26,15 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/nunito_extrabold"
         android:text="Choose one\nof the chapters"
-        android:textSize="35dp"
+        android:textSize="30dp"
         android:textColor="@color/black"
         android:shadowColor="@color/white"
         android:shadowDx="-5"
         android:shadowDy="-5"
         android:shadowRadius="1"
         android:layout_marginTop="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginBottom="10dp">
+        android:layout_marginLeft="35dp"
+        android:layout_marginBottom="12dp">
 
     </TextView>
 
@@ -45,7 +45,7 @@
         android:layout_weight="1"
         android:layout_marginLeft="12dp"
         android:layout_marginRight="12dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="32dp"
         android:gravity="center"
         android:horizontalSpacing="15dp"
         android:verticalSpacing="15dp"
