@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/navi_bg"
+    android:padding="5dp"
     tools:context=".QuizSubAdmin">
 
     <ImageView
@@ -23,8 +24,7 @@
         android:id="@+id/titleSub"
         android:layout_width="212dp"
         android:layout_height="26dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="170dp"
+        android:gravity="center"
         android:fontFamily="@font/nunito_bold"
         android:text="Subjects"
         android:textColor="@color/black"

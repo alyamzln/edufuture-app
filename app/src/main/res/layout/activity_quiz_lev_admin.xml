@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/navi_bg"
+    android:padding="5dp"
     tools:context=".QuizLevAdmin">
 
     <ImageView
@@ -23,11 +24,10 @@
         android:id="@+id/titleLevel"
         android:layout_width="212dp"
         android:layout_height="26dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="170dp"
         android:fontFamily="@font/nunito_bold"
         android:text="Levels of education"
         android:textColor="@color/black"
+        android:gravity="center"
         android:textSize="23dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,8 +40,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="12dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
         android:layout_marginBottom="8dp"
         android:horizontalSpacing="15dp"
         android:verticalSpacing="15dp"
