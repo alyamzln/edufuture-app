@@ -44,6 +44,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:foregroundGravity="center_vertical"
         android:horizontalSpacing="15dp"
         android:verticalSpacing="15dp"
         app:layout_constraintBottom_toTopOf="@+id/addSub"
